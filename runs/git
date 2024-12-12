@@ -1,0 +1,127 @@
+#!/bin/bash
+set -x
+
+########################################################################
+#                              User Infos                              #
+########################################################################
+
+echo Whats your name for git configuration?
+read name
+git config --global user.name "$name"
+
+echo Whats your email for git configuration?
+read email
+git config --global user.email "$email"
+
+########################################################################
+#                            Branch OPTIONS                            #
+########################################################################
+
+git config --global init.defatultBranch main
+
+########################################################################################################
+#                                            COMMIT ACTIONS                                            #
+########################################################################################################
+# | Alias | Command                     | Description                            | Usage             | #
+# |-------|-----------------------------|----------------------------------------|-------------------| #
+# | cm    | commit -m                   | Commit with message                    | git cm "message"  | #
+# | cam   | commit -am                  | Commit all staged changes with message | git cam "message" | #
+# | cane  | commit --amend --no-edit    | Commit ammend with no-edit             | git cane          | #
+# | caane | commit -a --amend --no-edit | Commit ammend all staged with no-edit  | git caane         | #
+########################################################################################################
+
+git config --global alias.cam "commit -am"
+git config --global alias.cm "commit -m"
+git config --global alias.cane "commit --amend --no-edit"
+git config --global alias.caane "commit -a --amend --no-edit"
+
+#####################################################################
+#                          BRANCH ACTIONS                           #
+#####################################################################
+# | Alias | Command     | Description           | Usage           | #
+# |-------|-------------|-----------------------|-----------------| #
+# | ch    | checkout    | Branch checkout       | git ch main     | #
+# | chb   | checkout -b | Branch creation       | git chb develop | #
+# | b     | branch      | Local branches        | git b           | #
+# | bm    | branch -m   | Rename current branch | git bm master   | #
+# | bD    | branch -D   | Delete branch         | git bD develop  | #
+#####################################################################
+
+git config --global alias.ch "checkout"
+git config --global alias.chb "checkout -b"
+git config --global alias.b "branch"
+git config --global alias.bm "branch -m"
+git config --global alias.bD "branch -D"
+
+################################################################
+#                        REMOTE ACTIONS                        #
+################################################################
+# | Alias | Command     | Description      | Usage           | #
+# |-------|-------------|------------------|-----------------| #
+# | ft    | fetch       | Execute fetch    | git fetch       | #
+# | pl    | pull        | Pull             | git pl origin2  | #
+# | ps    | push        | Push             | git ps origin2  | #
+# | plo   | pull origin | Pull from origin | git plo main    | #
+# | pso   | push origin | Push to origin   | git pso develop | #
+################################################################
+
+git config --global alias.ft "fetch"
+git config --global alias.pl "pull"
+git config --global alias.ps "push"
+git config --global alias.plo "pull origin"
+git config --global alias.pso "push origin"
+
+###########################################################
+#                 STATUS AND ADD ACTIONS                  #
+###########################################################
+# | Alias | Command | Description     | Usage           | #
+# |-------|---------|-----------------|-----------------| #
+# | st    | status  | See status      | git st          | #
+# | a     | add     | Add             | git a README.md | #
+# | aa    | add .   | Add all in path | git aa          | #
+# | ai    | add -i  | Interactive add | git ai          | #
+###########################################################
+
+git config --global alias.st "status"
+git config --global alias.a "add"
+git config --global alias.aa "add ."
+git config --global alias.ai "add -i"
+
+################################################################################################
+#                                        RESET ACTIONS                                         #
+################################################################################################
+# | Alias  | Command             | Description                                  | Usage      | #
+# |--------|---------------------|----------------------------------------------|------------| #
+# | r      | reset               | Reset                                        | git r      | #
+# | rh     | reset --hard        | Reset deleting changes                       | git rh     | #
+# | rhead  | reset HEAD~1        | Reset last commit from HEAD                  | git rhead  | #
+# | rhhead | reset --hard HEAD~1 | Reset last commit from HEAD deleting changes | git rhhead | #
+################################################################################################
+
+git config --global alias.r "reset"
+git config --global alias.rh "reset --hard"
+git config --global alias.rhead "reset HEAD~1"
+git config --global alias.rhhead "reset --hard HEAD~1"
+
+###################################################
+#                  STASH ACTIONS                  #
+###################################################
+# | Alias | Command   | Description   | Usage   | #
+# |-------|-----------|---------------|---------| #
+# | sts   | stash     | Stash changes | git sts | #
+# | stp   | stash pop | Pop stashed   | git stp | #
+###################################################
+
+git config --global alias.sts "stash"
+git config --global alias.stp "stash pop"
+
+####################################################################
+#                           LOG ACTIONS                            #
+####################################################################
+# | Alias | Command       | Description               | Usage    | #
+# |-------|---------------|---------------------------|----------| #
+# | logo  | log --oneline | Compact log visualization | git logo | #
+####################################################################
+
+git config --global alias.logo "log --oneline"
+

@@ -1,0 +1,23 @@
+#!/bin/bash
+set -x
+
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+pushd $script_dir/runs &> /dev/null
+./_pre
+popd &> /dev/null
+
+runs_dir=`find $script_dir/runs -mindepth 1 -maxdepth 1 -executable`
+
+log() {
+    echo "[INFO] $1"
+}
+
+for s in $runs_dir; do
+    if [ $s != "$script_dir/runs/_pre" ]; then
+        log "running script: $s"
+        $s
+    fi
+done
+
+./set-env

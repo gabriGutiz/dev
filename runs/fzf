@@ -1,0 +1,9 @@
+#!/bin/bash
+set -x
+
+sudo apt update
+sudo apt -y install fzf
+
+if [ -f "$HOME/.bashrc" ]; then
+    echo -e "\n\nexport FZF_DEFAULT_COMMAND='rg --hidden --no-ignore -l \"\"'" >> $HOME/.bashrc
+fi

@@ -1,0 +1,27 @@
+#!/bin/bash
+set +x
+
+log() {
+    echo "[INFO] $1"
+}
+
+update_files() {
+    log "copying over files from: $1"
+    pushd $1 &> /dev/null
+    (
+        configs=`find . -mindepth 1 -maxdepth 1 -type d`
+        for c in $configs; do
+            directory=${2%/}/${c#./}
+            log "    removing: rm -rf $directory"
+
+            rm -rf $directory
+
+            log "    copying env: cp $c $2"
+	    cp -r ./$c $2
+        done
+
+    )
+    popd &> /dev/null
+}
+
+update_files $HOME/personal/env/env/.config ~/.config

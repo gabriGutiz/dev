@@ -1,0 +1,20 @@
+#!/bin/bash
+set +x
+
+version="5.4.7"
+
+sudo apt -y install build-essential libreadline-dev unzip
+
+if [ -d $HOME/lua ]; then
+    rm -rf $HOME/lua
+fi
+
+curl -R -O https://lua.org/ftp/lua-${version}.tar.gz
+tar -zxf lua-${version}.tar.gz
+mv lua-${version} $HOME/lua
+rm lua-${version}.tar.gz
+
+pushd $HOME/lua
+make linux test
+sudo make install
+popd

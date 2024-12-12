@@ -1,0 +1,10 @@
+#!/bin/bash
+set -x
+
+if [ ! -d $HOME/lazygit ]; then
+    git clone --depth 1 https://github.com/jesseduffield/lazygit.git $HOME/lazygit
+fi
+
+pushd $HOME/lazygit &> /dev/null
+go install
+popd &> /dev/null
