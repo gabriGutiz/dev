@@ -8,7 +8,7 @@ if [ ! -d $HOME/personal ]; then
     mkdir $HOME/personal
 fi
 
-git clone https://github.com/gabriGutiz/env.git $HOME/personal/env
+git clone --recursive https://github.com/gabriGutiz/env.git $HOME/personal/env
 
 pushd $HOME/personal/env
 ./run

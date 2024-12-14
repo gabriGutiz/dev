@@ -1,0 +1,43 @@
+#!/bin/bash
+set -x
+
+sudo apt -y install nodejs xclip npm ripgrep git wget curl python3-pip pavucontrol
+
+sudo npm install --global yarn
+
+# INSTALL GO
+go_version="1.23.4"
+
+if [ -d ~/.local/go ]; then
+    sudo rm -rf ~/.local/go
+fi
+wget --output-document /tmp/go.linux-amd64.tar.gz https://go.dev/dl/go${go_version}.linux-amd64.tar.gz
+sudo tar -xvf /tmp/go.linux-amd64.tar.gz -C /tmp
+sudo mv /tmp/go ~/.local
+sudo ln -s /usr/local/go/bin/* /usr/bin
+sudo rm /tmp/go.linux-amd64.tar.gz
+# END GO INSTALLATION
+
+# INSTALL LUA
+lua_version="5.4.7"
+
+sudo apt -y install build-essential libreadline-dev unzip
+
+if [ -d $HOME/.local/lua ]; then
+    rm -rf $HOME/.local/lua
+fi
+
+wget --output-document /tmp/lua.tar.gz https://lua.org/ftp/lua-${lua_version}.tar.gz
+tar -zxf lua.tar.gz -C /tmp
+mv /tmp/lua-${version} $HOME/.local/lua
+rm /tmp/lua.tar.gz
+
+pushd $HOME/lua
+make linux test
+sudo make install
+popd
+# END LUA INSTALLATION
+
+# Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+

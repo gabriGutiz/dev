@@ -1,7 +1,0 @@
-#!/bin/bash
-set -x
-
-sudo apt update
-sudo apt -y install nodejs xclip npm tmux ripgrep i3 git wget curl fzf
-
-sudo npm install --global yarn

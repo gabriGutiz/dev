@@ -1,0 +1,22 @@
+bindkey -s ^f "tmux-sessionizer\n"
+
+addToPath() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$PATH:$1
+    fi
+}
+
+addToPathFront() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$1:$PATH
+    fi
+}
+
+addToPathFront $HOME/.local/bin
+addToPathFront $HOME/.local/apps/
+
+addToPathFront $HOME/.local/go/bin
+addToPathFront $HOME/go/bin
+addToPath $HOME/.cargo/bin
+
+export FZF_DEFAULT_COMMAND='rg --hidden --no-ignore -l ""'

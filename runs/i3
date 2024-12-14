@@ -1,0 +1,4 @@
+#!/bin/bash
+set -x
+sudo apt -y install i3
+sudo apt -y install i3-wm

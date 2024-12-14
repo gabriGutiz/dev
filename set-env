@@ -1,6 +1,8 @@
 #!/bin/bash
 set +x
 
+dev_env_home="$HOME/personal/dev"
+
 log() {
     echo "[INFO] $1"
 }
@@ -24,4 +26,15 @@ update_files() {
     popd &> /dev/null
 }
 
-update_files $HOME/personal/env/env/.config ~/.config
+copy() {
+    log "removing: $2"
+    rm $2
+    log "copying: $1 to $2"
+    cp $1 $2
+}
+
+update_files $dev_env_home/env/.config ~/.config
+update_files $dev_env_home/env/.local $HOME/.local
+
+copy $dev_env_home/env/.zsh_profile $HOME/.zsh_profile
+copy $dev_env_home/env/.zshrc $HOME/.zshrc

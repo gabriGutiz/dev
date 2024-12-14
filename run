@@ -4,7 +4,7 @@ set -x
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 pushd $script_dir/runs &> /dev/null
-./_pre
+./_libs
 popd &> /dev/null
 
 runs_dir=`find $script_dir/runs -mindepth 1 -maxdepth 1 -executable`
@@ -14,7 +14,7 @@ log() {
 }
 
 for s in $runs_dir; do
-    if [ $s != "$script_dir/runs/_pre" ]; then
+    if [ $s != "$script_dir/runs/_libs" ]; then
         log "running script: $s"
         $s
     fi
