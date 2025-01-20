@@ -1,0 +1,7 @@
+#!/bin/bash
+set -x
+
+wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O /tmp/packages-microsoft-prod.deb
+sudo dpkg -i /tmp/packages-microsoft-prod.deb
+rm /tmp/packages-microsoft-prod.deb
+
