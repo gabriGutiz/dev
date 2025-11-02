@@ -6,3 +6,13 @@ version="0.11.2-1.fc42"
 sudo dnf in -y neovim-$version
 
 git clone --recursive https://github.com/gabriGutiz/termacro.nvim.git $HOME/personal/termacro
+
+# Formatters
+pip3 install blue
+pip3 install isort
+
+sudo dnf in -y clang-tools-extra
+
+sudo npm install --global prettier
+
+cargo install stylua --locked
