@@ -1,5 +1,6 @@
 #!/bin/bash
 set +x
+set -e
 
 dev_env_home="$HOME/personal/dev"
 

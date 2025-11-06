@@ -1,5 +1,6 @@
 #!/bin/bash
 set -x
+set -e
 
 version="0.11.2-1.fc42"
 

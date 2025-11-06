@@ -1,5 +1,6 @@
 #!/bin/bash
 set -x
+set -e
 
 sudo dnf -y in nodejs xclip npm ripgrep git wget curl python3-pip pavucontrol
 
