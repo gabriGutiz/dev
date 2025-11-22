@@ -1,9 +1,0 @@
-#!/bin/bash
-set -x
-set -e
-
-sudo dnf -y in fzf
-
-if [ -f "$HOME/.bashrc" ]; then
-    echo -e "\n\nexport FZF_DEFAULT_COMMAND='rg --hidden --no-ignore -l \"\"'" >> $HOME/.bashrc
-fi

@@ -1,8 +1,0 @@
-#!/bin/bash
-set -x
-set -e
-
-sudo dnf in -y hyprland
-
-sudo dnf copr enable -y solopasha/hyprland
-sudo dnf in -y hyprpaper

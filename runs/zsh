@@ -2,8 +2,7 @@
 set -x
 set -e
 
-sudo dnf -y in zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo pacman -S --noconfirm zsh
 
 if [ -f "$HOME/.bashrc" ]; then
     echo -e "\n\nif [ -d \"\$HOME/.zshrc\" ] ; then\n    exec zsh\nfi" >> $HOME/.bashrc

@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x
-set -e
+set -xe
 
-sudo dnf -y in tmux
+sudo pacman -S --noconfirm tmux
