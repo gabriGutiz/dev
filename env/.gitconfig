@@ -1,0 +1,44 @@
+[user]
+	name = Gabriel Gutierrez
+	email = gabri.gutiz@gmail.com
+[init]
+	defaultBranch = master
+[pull]
+	rebase = true
+[alias]
+	cam = commit -am
+	cm = commit -m
+	cane = commit --amend --no-edit
+	caane = commit -a --amend --no-edit
+	ch = checkout
+	chb = checkout -b
+	b = branch
+	bm = branch -m
+	bD = branch -D
+	ft = fetch
+	pl = pull
+	ps = push
+	plo = pull origin
+	pso = push origin
+	st = status
+	a = add
+	aa = add .
+	ai = add -i
+	r = reset
+	rh = reset --hard
+	rhead = reset HEAD~1
+	rhhead = reset --hard HEAD~1
+	sts = stash
+	stp = stash pop
+	logo = log --oneline
+######################################################################### OMARCHY
+[diff]
+	algorithm = histogram    # Clearer diffs on moved/edited lines
+	colorMoved = plain       # Highlight moved blocks in diffs
+	mnemonicPrefix = true    # More intuitive refs in diff output
+[commit]
+	verbose = true           # Include diff comment in commit message template
+[branch]
+	sort = -committerdate    # Sort branches by most recent commit first
+[tag]
+	sort = -version:refname  # Sort version numbers as you would expect
