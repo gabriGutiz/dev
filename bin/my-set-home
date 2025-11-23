@@ -1,0 +1,50 @@
+#!/bin/bash
+set -xe
+
+export MY_DEV_PATH="$HOME/.local/dev"
+
+log() {
+    echo "[INFO] $1"
+}
+
+update_dirs() {
+    log "copying over dirs from: $1"
+    pushd $1 &> /dev/null
+    (
+        configs=`find . -mindepth 1 -maxdepth 1 -type d`
+        for c in $configs; do
+            directory=${2%/}/${c#./}
+            log "    removing: rm -rf $directory"
+
+            rm -rf $directory
+
+            log "    copying env: cp $c $2"
+	    cp -r ./$c $2
+        done
+    )
+    popd &> /dev/null
+}
+
+update_files() {
+    log "copying over files from: $1"
+    pushd $1 &> /dev/null
+    (
+        conf_files=`find . -mindepth 1 -maxdepth 1 -type f`
+        for c in $conf_files; do
+            file=${2%/}/${c#./}
+            log "    removing: rm $file"
+
+            rm $file
+
+            log "    copying file: cp $c $2"
+	    cp $c $2
+        done
+    )
+    popd &> /dev/null
+}
+
+update_dirs $MY_DEV_PATH/home/.config $HOME/.config
+
+update_files $MY_DEV_PATH/home $HOME
+
+hyprctl reload

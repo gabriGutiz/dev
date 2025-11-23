@@ -1,6 +1,0 @@
-#!/bin/bash
-set -x
-set -e
-
-sudo dnf copr enable scottames/ghostty
-sudo dnf in -y ghostty

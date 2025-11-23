@@ -1,0 +1,14 @@
+python
+python-pip
+python-pipx
+go
+lua
+luarocks
+rust
+rustup
+nodejs
+npm
+dotnet-runtime
+dotnet-sdk
+dotnet-runtime-8.0
+dotnet-sdk-8.0

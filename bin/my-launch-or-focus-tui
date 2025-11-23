@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# FROM https://github.com/basecamp/omarchy/blob/04d2f10840ba7318cf587ccbd577c531f33fc078/bin/omarchy-launch-or-focus-tui
+
+APP_ID="org.my.$(basename $1)"
+LAUNCH_COMMAND="my-launch-tui $@"
+
+exec my-launch-or-focus "$APP_ID" "$LAUNCH_COMMAND"

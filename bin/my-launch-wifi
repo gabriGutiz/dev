@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# FROM https://github.com/basecamp/omarchy/blob/04d2f10840ba7318cf587ccbd577c531f33fc078/bin/omarchy-launch-wifi
+
+rfkill unblock wifi
+my-launch-or-focus-tui impala

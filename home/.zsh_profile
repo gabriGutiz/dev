@@ -1,0 +1,20 @@
+bindkey -s ^f "tmux-sessionizer\n"
+
+export MY_DEV_PATH="$HOME/.local/dev"
+export MY_INSTALL="$MY_DEV_PATH/install"
+
+addToPath() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$PATH:$1
+    fi
+}
+
+addToPathFront() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$1:$PATH
+    fi
+}
+
+addToPathFront $MY_DEV_PATH/bin
+
+export FZF_DEFAULT_COMMAND='rg --hidden --no-ignore -l ""'
